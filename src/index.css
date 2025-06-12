@@ -116,7 +116,7 @@ body ::-webkit-scrollbar-thumb {
   color: var(--white);
 
   font-size: 12px;
-  background-color: #ff5823;
+  background-color: var(--dark-orange);
 }
 @media only screen and (max-width: 568px) {
   .highlighted-btn {
