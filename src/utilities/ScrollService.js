@@ -1,5 +1,5 @@
 import { Subject } from "rxjs";
-
+import { TOTAL_SCREENS } from "./CommonUtils";
 export default class ScrollService {
   static scrollHandler = new ScrollService();
 
