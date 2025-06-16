@@ -10,7 +10,7 @@
   letter-spacing: 3px;
   margin: 8px 0 18px 0;
   font-size: 12px;
-  color: var(--white);
+  color: #1f2235;
 }
 .screen-heading {
   font-size: 32px;
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   width: 180px;
-  margin: 10px 0 0 0;
+  margin: 8px 0 0 0;
 }
 .separator-line {
   width: 100%;
@@ -32,12 +32,11 @@
 .separator-blob {
   height: 10px;
   width: 100%;
-  position: absolute;
   display: flex;
   justify-content: center;
 }
 .separator-blob div {
   width: 35px;
   border-radius: 10px;
-  background-color: var(--dark-orange);
+  background-color: #ff5e00;
 }
