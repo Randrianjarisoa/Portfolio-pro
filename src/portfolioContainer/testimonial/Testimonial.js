@@ -39,7 +39,7 @@ const Testimonial = (props) => {
       name: "Sarah Johnson",
       position: "CEO, TechSolutions Inc.",
       stars: 4.5,
-      image: "img/testimonial/bg-1.jpg",
+      image: "img/testimonial/mike.png",
     },
     {
       id: 2,
