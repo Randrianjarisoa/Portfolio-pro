@@ -76,6 +76,17 @@ form label {
   font-family: "Poppins Medium";
 }
 
+/* Style pour le message banner */
+form p {
+  color: #ff0000;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-family: "Poppins Medium";
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 form input,
 form textarea {
   padding: 12px 15px;

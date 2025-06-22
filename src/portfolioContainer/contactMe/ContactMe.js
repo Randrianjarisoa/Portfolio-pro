@@ -43,8 +43,9 @@ const ContactMe = (props) => {
         email,
         message,
       };
+      console.log(data);
       setBool(true);
-      const res = await axios.post("/contact", data);
+      const res = await axios.post(`/contact`, data);
       if (name.length === 0 || email.length === 0 || message.length === 0) {
         setBanner(res.data.msg);
         toast.error(res.data.msg);
@@ -86,7 +87,7 @@ const ContactMe = (props) => {
             <img src={imgBack} alt="image not found" />
           </div>
           <form onSubmit={submitForm}>
-            <p>Banner</p>
+            <p>{banner}</p>
             <label htmlFor="name">Name</label>
             <input type="text" onChange={handleName} value={name} />
 
