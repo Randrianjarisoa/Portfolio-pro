@@ -1,5 +1,8 @@
+import axios from "axios";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import Typical from "react-typical";
+import load1 from "../../images/load2.gif";
 import imgBack from "../../images/mailz.jpeg";
 import Animations from "../../utilities/Animations";
 import ScreenHeading from "../../utilities/screenHeading/ScreenHeading";
@@ -8,7 +11,7 @@ import "./ContactMe.css";
 
 const ContactMe = (props) => {
   let fadeInScreenHandler = (screen) => {
-    if (screen.fadeScreen !== props.id) return;
+    if (screen.fadeInScreen !== props.id) return;
     Animations.animations.fadeInScreen(props.id);
   };
   const fadeInSubscription =
@@ -32,12 +35,32 @@ const ContactMe = (props) => {
     setMessage(e.target.value);
   };
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
+    try {
+      let data = {
+        name,
+        email,
+        message,
+      };
+      setBool(true);
+      const res = await axios.post("/contact", data);
+      if (name.length === 0 || email.length === 0 || message.length === 0) {
+        setBanner(res.data.msg);
+        toast.error(res.data.msg);
+        setBool(false);
+      } else if (res.status === 200) {
+        setBanner(res.data.msg);
+        toast.success(res.data.msg);
+        setBool(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <div className="main-container" id={props.id || ""}>
+    <div className="main-container fade-in" id={props.id || ""}>
       <ScreenHeading subHeading={"Let's keep in Touch"} title={"Contact Me"} />
       <div className="center-form">
         <div className="col">
@@ -62,7 +85,7 @@ const ContactMe = (props) => {
             <h4>Send Your Email Here!</h4>
             <img src={imgBack} alt="image not found" />
           </div>
-          <form>
+          <form onSubmit={submitForm}>
             <p>Banner</p>
             <label htmlFor="name">Name</label>
             <input type="text" onChange={handleName} value={name} />
@@ -77,6 +100,13 @@ const ContactMe = (props) => {
               <button type="submit">
                 Send
                 <i className="fa fa-paper-plane" />
+                {bool ? (
+                  <b className="load">
+                    <img src={load1} alt="Loading..." />
+                  </b>
+                ) : (
+                  ""
+                )}
               </button>
             </div>
           </form>

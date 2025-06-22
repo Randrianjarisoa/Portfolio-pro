@@ -91,7 +91,7 @@ form textarea {
 form input:focus,
 form textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #1f2235;
+  box-shadow: 0 0 0 2px #4a99c7;
   background: white;
 }
 
@@ -122,7 +122,7 @@ form textarea {
 }
 
 .send-btn button:hover {
-  background-color: #ff7b33;
+  background-color: #4a99c7;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(255, 94, 0, 0.3);
 }
@@ -149,6 +149,14 @@ form textarea {
   transform: scale(1.2);
 }
 
+button .load {
+  width: 100%;
+}
+
+button .load img {
+  width: 60px;
+  color: green;
+}
 /* Responsive */
 @media screen and (max-width: 940px) {
   .back-form {
